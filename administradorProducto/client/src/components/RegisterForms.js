@@ -4,13 +4,10 @@ import * as Yup from "yup";
 import { simpleAxiosGet, simpleAxiosPost } from '../accions/simpleAxios';
 
 
-
-
-
 const RegisterForms = (props) => {
     const [register, setRegister] = useState("")
 
-    const {onSubmitProp, tittleName, priceValue, descriptionText} = props 
+    const { tittleName, priceValue, descriptionText} = props 
 
     async function connectData(valor) {
         console.log(valor)
@@ -18,18 +15,14 @@ const RegisterForms = (props) => {
         console.log(response)
     }
 
-    const write = (value) => {
-        // console.log(value.target.value)
-        setRegister(value.target.value)
-    }
 
     return (
         <div>
             <Formik          
             initialValues={{
-                tittle:"",
-                price:"",
-                description:"",    
+                tittle:tittleName,
+                price:priceValue,
+                description:descriptionText,    
 
             }}
             validationSchema={ Yup.object().shape({
@@ -51,10 +44,10 @@ const RegisterForms = (props) => {
                 //onSubmitProp(values)
                 const timeOut = setTimeout(()=>{
                     
-                    if(values){
-                        connectData(values)
-                        setRegister(values)   
-                    }
+        
+                    connectData(values)
+                    setRegister(values)   
+       
 
                     setSubmitting(false);
 
@@ -74,15 +67,15 @@ const RegisterForms = (props) => {
                                     <Form onSubmit={handleSubmit}>
                                         <div>
                                             <label htmlFor='tittle'>Titulo</label>
-                                            <Field onChange={handleChange} onBlur={handleBlur}  id="tittle" type="text" placeholder="titulo" name="tittle" ></Field>
+                                            <Field onChange={handleChange} onBlur={handleBlur}  id="tittle" type="text" placeholder={tittleName} name="tittle" ></Field>
                                             <ErrorMessage name="tittle">{(msg)=> <p className='error'>{msg}</p>}</ErrorMessage> 
 
                                             <label htmlFor='price'>precio</label>
-                                            <Field id="price" type="number" placeholder="titulo" name="price"></Field>
+                                            <Field id="price" type="number" placeholder={priceValue} name="price"></Field>
                                             <ErrorMessage name="price">{(msg)=> <p className='error'>{msg}</p>}</ErrorMessage>
 
                                             <label htmlFor='description'>Description</label>
-                                            <Field id="description" type="text" placeholder="titulo" name="description"></Field>
+                                            <Field id="description" type="text" placeholder={descriptionText} name="description"></Field>
                                             <ErrorMessage name="description">{(msg)=> <p className='error'>{msg}</p>}</ErrorMessage> 
                                         </div>
 

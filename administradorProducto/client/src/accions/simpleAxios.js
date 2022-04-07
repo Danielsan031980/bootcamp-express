@@ -27,3 +27,32 @@ export async function simpleAxiosPost (url,body) {
     }
 
 }
+
+// Delete one
+export async function simpleAxiosDelete (url) {    
+    try{
+        
+        const apiResponse = axios.delete(url).then(response=>response.data);
+        return apiResponse
+
+    }catch(error){
+       
+        return {error:"se ha producido un error:" + error}
+    }
+
+}
+
+
+// Modificar una especifica
+export async function simpleAxiosUpdate (url) {    
+    try{
+        
+        const apiResponse = axios.findByIdAndUpdate(url).then(response=>response.data);
+        return apiResponse
+
+    }catch(error){
+       
+        return {error:"se ha producido un error:" + error}
+    }
+
+}
