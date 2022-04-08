@@ -44,10 +44,10 @@ export async function simpleAxiosDelete (url) {
 
 
 // Modificar una especifica
-export async function simpleAxiosUpdate (url) {    
+export async function simpleAxiosUpdate (url, body) {    
     try{
         
-        const apiResponse = axios.findByIdAndUpdate(url).then(response=>response.data);
+        const apiResponse = axios.findByIdAndUpdate(url, body).then(response=>response.data);
         return apiResponse
 
     }catch(error){

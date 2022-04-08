@@ -2,9 +2,10 @@
 import './App.css';
 import RegisterForms from './components/RegisterForms';
 import Viewproducts from './views/Viewproducts';
-import Viewproduct from './views/Viewproduct';
+import Viewproduct from './views/Main';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom"
 import React, { useEffect, useState} from 'react';
+import Buttonapi from './components/Buttonapi';
 
 function App() {
   const [id, setId] = useState()
@@ -35,10 +36,11 @@ function App() {
               <RegisterForms tittleName ={products.tittle} priceValue={products.price} descriptionText={products.description} />
             </Route>
             <Route path="/edit">
-              <RegisterForms tittleName = {products.tittle} priceValue={products.price} descriptionText={products.description} />
+              <RegisterForms tittleName = {products.tittle} priceValue={products.price} descriptionText={products.description} id={products._id} edit={true}/>
             </Route>
             <Route path="/">
               <Viewproducts setId={setId}  />
+              <Buttonapi text="prueba"/>
             </Route>
         </Switch>
 

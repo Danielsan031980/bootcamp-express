@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from 'react';
 import { simpleAxiosGet, simpleAxiosPost, simpleAxiosDelete } from '../accions/simpleAxios';
 import {BrowserRouter as Router, Switch, Route, Link, useHistory} from "react-router-dom"
+import Buttonapi from '../components/Buttonapi';
 
 const Viewproducts = (props) => {
     const [products, setProducts] = useState()
@@ -12,6 +13,8 @@ const Viewproducts = (props) => {
         setProducts(response.products)
         console.log(response.products)
     }
+
+    
 
     const handleHistory = (e) =>{
         const url = "http://localhost:8000/api/product/" + e.target.value
@@ -41,8 +44,9 @@ const Viewproducts = (props) => {
                       products?.map((producto, index) =>  
                         <li key={index} > 
                            {producto.tittle} 
-                           <button value={producto._id} onClick={(e) => handleHistory(e)}> Ver Detalle </button>
-                           <button  onClick={(e) => deleteProduct(e)} value={producto._id}  > Eliminar </button>  
+                            
+                            <button value={producto._id} onClick={(e) => handleHistory(e)}> Ver Detalle </button> 
+                            <button  onClick={(e) => deleteProduct(e)} value={producto._id}  > Eliminar </button>  
                        </li> )
                    
                 }

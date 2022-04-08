@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { simpleAxiosGet, simpleAxiosPost } from '../accions/simpleAxios';
+import { simpleAxiosGet, simpleAxiosPost, simpleAxiosUpdate } from '../accions/simpleAxios';
 
 
 const RegisterForms = (props) => {
     const [register, setRegister] = useState("")
 
-    const { tittleName, priceValue, descriptionText} = props 
+    const { tittleName, priceValue, descriptionText, _id, edit} = props 
 
     async function connectData(valor) {
-        console.log(valor)
-        const response = await simpleAxiosPost('http://localhost:8000/api/product/create',valor)
-        console.log(response)
+
+        if(edit){
+            const responseb = await simpleAxiosUpdate('http://localhost:8000/api/product/update/' + _id ,valor)
+            console.log(responseb)
+        }else{
+            const responsea = await simpleAxiosPost('http://localhost:8000/api/product/create',valor)
+            console.log(responsea)
+        }
+
+
     }
 
 
@@ -43,12 +50,8 @@ const RegisterForms = (props) => {
             onSubmit={(values,{ setSubmitting })=>{
                 //onSubmitProp(values)
                 const timeOut = setTimeout(()=>{
-                    
-        
                     connectData(values)
                     setRegister(values)   
-       
-
                     setSubmitting(false);
 
                 }, 1000)

@@ -49,7 +49,7 @@ const Viewproduct = (props) => {
                 </li> 
             </ul>
             <button  onClick={(e) => deleteProduct(e)} value={product?._id} >Eliminar</button>
-            <button  onClick={(e) => editProduct(e)} value={product?._id} >modificar</button>
+            <button  onClick={(e) => editProduct(e)} value={product?._id} >Modificar</button>
         </div>
     );
 }
