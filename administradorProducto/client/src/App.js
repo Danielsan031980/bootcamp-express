@@ -11,7 +11,7 @@ function App() {
   const [id, setId] = useState()
   const [products, setProducts] = useState({
     tittle:"",
-    price:0,
+    price:"",
     description:""
   })
   return (
@@ -40,7 +40,6 @@ function App() {
             </Route>
             <Route path="/">
               <Viewproducts setId={setId}  />
-              <Buttonapi text="prueba"/>
             </Route>
         </Switch>
 
