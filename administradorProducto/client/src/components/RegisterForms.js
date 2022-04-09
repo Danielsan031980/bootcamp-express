@@ -24,7 +24,7 @@ const RegisterForms = (props) => {
 
 
     return (
-        <div>
+        <div className="class-registro">
             <Formik          
             initialValues={{
                 tittle:tittleName,
@@ -47,9 +47,10 @@ const RegisterForms = (props) => {
                 .required("Por favor ingresa la descripción del producto")
 
             })}
-            onSubmit={(values,{ setSubmitting })=>{
+            onSubmit={(values,{ setSubmitting, resetForm })=>{
                 //onSubmitProp(values)
                 const timeOut = setTimeout(()=>{
+                    resetForm()
                     connectData(values)
                     setRegister(values)   
                     setSubmitting(false);
@@ -68,22 +69,40 @@ const RegisterForms = (props) => {
                             <div>
                                 <h2>Formulario de Registro</h2>
                                     <Form onSubmit={handleSubmit}>
-                                        <div>
-                                            <label htmlFor='tittle'>Titulo</label>
-                                            <Field onChange={handleChange} onBlur={handleBlur}  id="tittle" type="text" placeholder={tittleName} name="tittle" ></Field>
-                                            <ErrorMessage name="tittle">{(msg)=> <p className='error'>{msg}</p>}</ErrorMessage> 
+                                        <div className="formulario">
+                                            <div className="datos">
+                                                <div>
+                                                    <label htmlFor='tittle'>Titulo</label>
+                                                    <Field onChange={handleChange} onBlur={handleBlur}  id="tittle" type="text" placeholder={tittleName} name="tittle" ></Field>
+                                                </div>                                   
+                                                <div>
+                                                     <ErrorMessage name="tittle">{(msg)=> <p className='error'>{msg}</p>}</ErrorMessage> 
+                                                </div>
+                                            </div>
 
-                                            <label htmlFor='price'>precio</label>
-                                            <Field id="price" type="number" placeholder={priceValue} name="price"></Field>
-                                            <ErrorMessage name="price">{(msg)=> <p className='error'>{msg}</p>}</ErrorMessage>
+                                            <div className="datos">
+                                                <div>
+                                                    <label htmlFor='price'>precio</label>
+                                                    <Field onChange={handleChange} onBlur={handleBlur} id="price" type="number" placeholder={priceValue} name="price"></Field>
+                                                </div>
+                                                <div>
+                                                    <ErrorMessage name="price">{(msg)=> <p className='error'>{msg}</p>}</ErrorMessage>
+                                                </div>
+                                            </div>
 
-                                            <label htmlFor='description'>Description</label>
-                                            <Field id="description" type="text" placeholder={descriptionText} name="description"></Field>
-                                            <ErrorMessage name="description">{(msg)=> <p className='error'>{msg}</p>}</ErrorMessage> 
+                                            <div className="datos">
+                                                <div>
+                                                    <label htmlFor='description'>Description</label>
+                                                    <Field onChange={handleChange} onBlur={handleBlur} id="description" type="text" placeholder={descriptionText} name="description"></Field>
+                                                </div>
+                                                <div>
+                                                <ErrorMessage name="description">{(msg)=> <p className='error'>{msg}</p>}</ErrorMessage> 
+                                                </div>
+                                            </div>
                                         </div>
 
                                         {/* {errors.firstName && touched.firstName && <p>{errors.firstName}</p>} */}
-                                        <button type="submit" disabled={Object.values(errors).length>0} > Registrarse </button> 
+                                        <button type="submit" disabled={Object.values(errors).length>0} > Registrar </button> 
                                     </Form>    
                             </div>
                         )

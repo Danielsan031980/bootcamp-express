@@ -1,11 +1,11 @@
 
 import './App.css';
 import RegisterForms from './components/RegisterForms';
-import Viewproducts from './views/Viewproducts';
-import Viewproduct from './views/Main';
+import Main from './views/Main';
+import Viewproduct from './views/Product';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom"
 import React, { useEffect, useState} from 'react';
-import Buttonapi from './components/Buttonapi';
+
 
 function App() {
   const [id, setId] = useState()
@@ -17,9 +17,10 @@ function App() {
   return (
 
     <div className="App">
-      <Router>
-      <nav>
-          <ul>
+      <h1>Administración de Productos</h1>
+      <Router className="router-class">
+     
+          <ul className="lista-nav">
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -27,19 +28,19 @@ function App() {
               <Link to="/crear">Crear Nuevo</Link>
             </li>
           </ul>
-        </nav>
+      
         <Switch>
           <Route path="/product/:id">
              <Viewproduct id={id}  setProducts={setProducts} />
           </Route>
             <Route path="/crear">
-              <RegisterForms tittleName ={products.tittle} priceValue={products.price} descriptionText={products.description} />
+              <RegisterForms tittleName ="" priceValue="" descriptionText="" />
             </Route>
             <Route path="/edit">
               <RegisterForms tittleName = {products.tittle} priceValue={products.price} descriptionText={products.description} id={products._id} edit={true}/>
             </Route>
             <Route path="/">
-              <Viewproducts setId={setId}  />
+              <Main className="lista-productos" setId={setId} />
             </Route>
         </Switch>
 
