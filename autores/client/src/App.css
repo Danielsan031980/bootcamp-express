@@ -1,0 +1,104 @@
+.App {
+  width: 410px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 10px;
+  display:flex;
+  flex-direction: column;
+ 
+}
+
+.main-body ul{
+  list-style: none;
+  display: flex;
+  flex-direction:column;
+  padding: 0;
+}
+
+.main-body ul li{
+  display: flex;
+  flex-direction:row;
+}
+
+.lista-nav{
+  list-style: none;
+  display: flex;
+  gap:30px;
+  align-self: flex-start;
+  padding: 0;
+}
+
+h3{
+
+  font-size: 15px;
+  color: rgb(147, 0, 147);
+  align-self: flex-start;
+
+}
+
+
+.columna-1{
+  width: 180px;
+  padding: 10px;
+  border: 1px solid black;  
+  display: flex;
+  justify-content: space-around;
+}
+
+.button-main{
+  padding: 8px;
+  border-radius:10px;
+  background-image: linear-gradient(5deg, #d9f7f7 0, #d3e9e7 16.67%, #c8d4d2 33.33%, #b9b9b9 50%, #a99fa2 66.67%, #9c8b93 83.33%, #927f8a 100%);
+}
+
+.columna-1-titulo{
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.class-registro{
+  border: 1px solid black;   
+}
+
+.form-button{
+  display: flex;
+  justify-content:space-between;
+  width: 260px;
+  margin: 0 auto;
+}
+.input-form{
+  width: 260px;
+  margin: 0 auto;
+}
+
+.input-autor{
+  display: flex;
+  flex-direction: column;
+}
+
+.input-autor label{
+  align-self: flex-start;
+  margin-left: 70px;
+}
+
+.main-form{
+  display: flex;
+  width: 260px;
+}
+
+.main-form h3{
+  align-self: flex-start;
+  margin-left: 70px;
+}
+
+.form-button button{
+    background-color: #65BBFF;
+    border: 2px solid white;  
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    font-weight: 800;
+    font-size: 15px;
+    margin:  10px 0;
+
+}
